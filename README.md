@@ -9,6 +9,9 @@ It works with all games i testes since now, except for "Onion" (it's a big rom a
 ![ScreenShot](https://raw.githubusercontent.com/aotta/PiRTOIIDuo/main/Pictures/Pirto2Duo.jpeg)
 ![ScreenShot](https://raw.githubusercontent.com/aotta/PiRTOIIDuo/main/Pictures/DOTC.jpg)
 
+![ScreenShot](https://raw.githubusercontent.com/aotta/PiRTOIIDuo/main/Pictures/CatAttack.jpg)
+
+
 Kicad project and gerbers files for the pcb are in the PCB folder, you need only a diode, a push buttons for resetting the cart if needed or want restart, and the micro SDCard holder. 
 Add you pico2, and flash the firmware ".uf2" in the Pico by connecting it while pressing button on Pico and drop it in the opened windows on PC.
 Use the SDCard to store "BIN" and "CFG“ files  into.
