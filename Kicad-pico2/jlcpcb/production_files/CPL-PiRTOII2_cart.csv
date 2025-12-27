@@ -1,0 +1,7 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+CN1,EDGE_CONN,Intellivision_Edge_Connector,119.0677,-173.734,0.0,top
+D1,1n5819,D_DO-41_SOD81_P10.16mm_Horizontal,102.05,-132.92,-90.0,top
+J3,Micro_SD_Card,J_SD_Card-micro_socket_A,138.8025,-85.22,-90.0,top
+Q1,BC547,TO-92L_HandSolder,119.32,-124.965,0.0,top
+SW1,BTN_RESET_PICO,SW_Tactile_SPST_Angled_PTS645Vx83-2LFS,94.3725,-85.675,90.0,top
+U1,PICO,RPi_Pico_SMD_TH,119.87,-106.59,90.0,top
