@@ -7,6 +7,8 @@ This version support Intellivision bin+cfg games, including the JLP acceleration
 It works with all games i testes since now, except for "Onion" (it's a big rom and i think it will need next pico3 ;) )
 
 ![ScreenShot](https://raw.githubusercontent.com/aotta/PiRTOIIDuo/main/Pictures/Pirto2Duo.jpeg)
+![ScreenShot](https://raw.githubusercontent.com/aotta/PiRTOIIDuo/main/Pictures/shell2.jpeg)
+
 ![ScreenShot](https://raw.githubusercontent.com/aotta/PiRTOIIDuo/main/Pictures/boot2.jpeg)
 
 ![ScreenShot](https://raw.githubusercontent.com/aotta/PiRTOIIDuo/main/Pictures/bd.jpeg)
