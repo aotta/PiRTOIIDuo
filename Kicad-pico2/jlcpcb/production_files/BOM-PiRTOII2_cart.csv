@@ -1,0 +1,7 @@
+Comment,Designator,Footprint,LCSC,Quantity
+1n5819,D1,D_DO-41_SOD81_P10.16mm_Horizontal,C2474,1
+BC547,Q1,TO-92L_HandSolder,C2092,1
+BTN_RESET_PICO,SW1,SW_Tactile_SPST_Angled_PTS645Vx83-2LFS,C918856,1
+Micro_SD_Card,J3,J_SD_Card-micro_socket_A,C393941,1
+PICO,U1,RPi_Pico_SMD_TH,C41407547,1
+EDGE_CONN,CN1,Intellivision_Edge_Connector,,1
