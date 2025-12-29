@@ -15,6 +15,7 @@
 // ***************************************************************************************
 //
 //  v.1.00 - First release 27/12/2025
+//  v.1.01 - bug fixed in parsing .cfg with "build date"
 */
 
 //#define intydebug // for debug print on intyscreen
@@ -826,7 +827,7 @@ void load_cfg(char *filename) {
           leggiRiga(file, riga, 79);
           //printInty(riga);
          } else {
-          Serial.println("[mapping] not found");
+          Serial.println("[mapping] not found at line 1");
            error(4); // 3 error [mapping] section not found
         }
       }
@@ -878,6 +879,9 @@ void load_cfg(char *filename) {
           //mapping
           linepos=strcspn(riga,"-");
           linepos2=strcspn(riga,"=");
+          if (strstr(riga,"build_date")){
+            linepos=-1;
+          }; 
           if ((linepos>=0) && (riga[linepos]=='-')) {
             //printInty("line>0");
             memset(tmp,0,sizeof(tmp));
@@ -1293,7 +1297,7 @@ void LoadGame(){
     RAM[0x1ffe]=random(0,0x10000);        
     if (romLen>=210000) {
       vreg_set_voltage(VREG_VOLTAGE_1_30);
-      set_sys_clock_khz(400000, true);
+      set_sys_clock_khz(390000, true);
       Serial.println("++ set ovclk to TURBO");
     } else {
       vreg_set_voltage(VREG_VOLTAGE_1_25);
