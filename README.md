@@ -6,6 +6,11 @@ PiRTO II DUO is the new version of my PiRTO multicart DIY yourself based now on 
 This version support Intellivision bin+cfg games, including the JLP acceleration and savegames features.
 It works with all games i testes since now, except for "Onion" (it's a big rom and i think it will need next pico3 ;) )
 
+changelog:
+v.1.00 - initial release
+v.1.01 - bugfix in parsing cfg
+v.1.02 - added parsing for "jlp_accel" params, improved overclock for "Onion"
+
 ![ScreenShot](https://raw.githubusercontent.com/aotta/PiRTOIIDuo/main/Pictures/Pirto2Duo.jpeg)
 ![ScreenShot](https://raw.githubusercontent.com/aotta/PiRTOIIDuo/main/Pictures/shell2.jpeg)
 
