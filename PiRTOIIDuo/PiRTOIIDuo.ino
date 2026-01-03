@@ -16,6 +16,7 @@
 //
 //  v.1.00 - First release 27/12/2025
 //  v.1.01 - bug fixed in parsing .cfg with "build date"
+//  v.1.02 - added parsing "jlp_accel" in .cfg 
 */
 
 //#define intydebug // for debug print on intyscreen
@@ -749,7 +750,7 @@ void printSortedSlots(unsigned int mapfrom[], unsigned int mapto[], unsigned int
         Serial.println(tipo[i], HEX);
         if (tipo[i]==2) {
           Serial.print("Ram from:");Serial.print(ramfrom,HEX);
-          Serial.print("Ram to:");Serial.println(ramto,HEX);
+          Serial.print(" Ram to:");Serial.println(ramto,HEX);
         }
     }
 }
@@ -765,9 +766,9 @@ void load_cfg(char *filename) {
   char riga[80];
   char tmp[80];
   int linepos,linepos2;     
-
+  Serial.print("loading: ");Serial.println(filename);
   memset(tmp,0,sizeof(tmp));
-  int j=40;
+  int j=sizeof(tmp);
   int dot=0;
   while ((filename[j]!='.')&&(j>0)) {
     dot=j;
@@ -783,7 +784,8 @@ void load_cfg(char *filename) {
  
 
 	if (!(file=SD.open(filename))) {
-		Serial.println("cfg not found");
+    Serial.print(filename);
+		Serial.println(" ? cfg not found");
     //printInty("using 0.cfg");
     strcpy(filename,"/0.cfg");  
     if (!(file=SD.open(filename))) {
@@ -812,12 +814,13 @@ void load_cfg(char *filename) {
     if (riga[0]>=32) {
       //printInty("riga0>32");
       memset(tmp,0,sizeof(tmp));
-      memcpy(tmp,riga,9);
-      if ((!(strcmp(tmp,"jlp = 1")))||(!(strcmp(tmp,"jlp = 3")))) {
+      memcpy(tmp,riga,13);
+      Serial.println(tmp); //poivia 
+      if ((!(strcmp(tmp,"jlp = 1")))||(!(strcmp(tmp,"jlp = 3")))||(!(strcmp(tmp,"jlp_accel = 1")))||(!(strcmp(tmp,"jlp_accel = 3")))) {
           JLPOn=true;
           initFlashFile();
       }
-      if ((!(strcmp(tmp,"JLP = 1")))||(!(strcmp(tmp,"JLP = 3")))) {
+      if ((!(strcmp(tmp,"JLP = 1")))||(!(strcmp(tmp,"JLP = 3")))||(!(strcmp(tmp,"JLP_ACCEL = 1")))||(!(strcmp(tmp,"JLP_ACCEL = 3")))) {
                  JLPOn=true;
                  initFlashFile();
       }
@@ -960,7 +963,7 @@ void load_cfg(char *filename) {
 
  // Al posto di sortSlots(), usa:
     sortSlotsSimple(mapfrom, mapto, maprom, mapdelta, mapsize, page, tipo, slot);
-    Serial.println("\nDati ordinati per maprom, tipo, page:");
+    Serial.println("\nDati ordinati per tipo, maprom, page:");
     printSortedSlots(mapfrom, mapto, maprom, mapdelta, mapsize, page, tipo, slot);
   
    // slot--;
@@ -1295,13 +1298,13 @@ void LoadGame(){
     RAM[0x002f]=0x0;
     
     RAM[0x1ffe]=random(0,0x10000);        
-    if (romLen>=210000) {
+    if (romLen>=200000) {
       vreg_set_voltage(VREG_VOLTAGE_1_30);
-      set_sys_clock_khz(390000, true);
+      set_sys_clock_khz(380000, true);
       Serial.println("++ set ovclk to TURBO");
     } else {
       vreg_set_voltage(VREG_VOLTAGE_1_25);
-      set_sys_clock_khz(360000, true);
+      set_sys_clock_khz(352000, true);
       Serial.println("++ set ovclk to Faster");
     }
     delayMicroseconds(30);
