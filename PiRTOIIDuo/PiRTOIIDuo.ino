@@ -815,7 +815,7 @@ void load_cfg(char *filename) {
       //printInty("riga0>32");
       memset(tmp,0,sizeof(tmp));
       memcpy(tmp,riga,13);
-      Serial.println(tmp); //poivia 
+      //Serial.println(tmp); //poivia 
       if ((!(strcmp(tmp,"jlp = 1")))||(!(strcmp(tmp,"jlp = 3")))||(!(strcmp(tmp,"jlp_accel = 1")))||(!(strcmp(tmp,"jlp_accel = 3")))) {
           JLPOn=true;
           initFlashFile();
@@ -1298,10 +1298,10 @@ void LoadGame(){
     RAM[0x002f]=0x0;
     
     RAM[0x1ffe]=random(0,0x10000);        
-    if (romLen>=200000) {
+    if ((romLen>=280000)||(slot>=30)) {
+      Serial.println("++ set ovclk to TURBO");
       vreg_set_voltage(VREG_VOLTAGE_1_30);
       set_sys_clock_khz(380000, true);
-      Serial.println("++ set ovclk to TURBO");
     } else {
       vreg_set_voltage(VREG_VOLTAGE_1_25);
       set_sys_clock_khz(352000, true);
