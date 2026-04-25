@@ -8,8 +8,14 @@ It works with all games i testes since now, except for "Onion" (it's a big rom a
 
 changelog:
 v.1.00 - initial release
+
 v.1.01 - bugfix in parsing cfg
+
 v.1.02 - added parsing for "jlp_accel" params, improved overclock for "Onion"
+
+v.1.03 - increaded RAMSIZE to 0x4000 from 0x2000, bug fixed for YM-Player
+
+
 
 ![ScreenShot](https://raw.githubusercontent.com/aotta/PiRTOIIDuo/main/Pictures/Pirto2Duo.jpeg)
 ![ScreenShot](https://raw.githubusercontent.com/aotta/PiRTOIIDuo/main/Pictures/shell2.jpeg)
