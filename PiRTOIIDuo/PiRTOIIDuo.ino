@@ -17,6 +17,7 @@
 //  v.1.00 - First release 27/12/2025
 //  v.1.01 - bug fixed in parsing .cfg with "build date"
 //  v.1.02 - added parsing "jlp_accel" in .cfg 
+//  v.1.03 - increaded RAMSIZE to 0x4000 from 0x2000, bug fixed for YM-Player
 */
 
 //#define intydebug // for debug print on intyscreen
@@ -146,7 +147,7 @@ unsigned char busLookup[8];
 
 char RBLo,RBHi;
 #define BINLENGTH  1024*218//65536L
-#define RAMSIZE  0x2000
+#define RAMSIZE  0x4000  // V.1.03 - increaded from 0x2000, bug fixed for YM-Player
 #define FLASHSIZE  0x1800  //xx row da 96 0x1800 poi rimettere!!!
 
 uint16_t ROM[BINLENGTH];
@@ -363,8 +364,7 @@ while(1) {
       else 
       {  //not jlp
       //  curBank=99;
-          {
-
+          
           for (int8_t i=0; i < slot; i++) {
             if (((parallelBus - maprom[i]) <= mapsize[i])){
               deviceAddress = true;     
@@ -386,8 +386,7 @@ while(1) {
               }
             } 
           }
-        }
-    
+          
       } //if not jlp
         if (hacks>0) {
           for (int i=0; i<maxHacks;i++) {
